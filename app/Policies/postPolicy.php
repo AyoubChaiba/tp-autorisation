@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\Models\User;
 use App\Models\posts;
 
-class ArticlePolicy
+class postPolicy
 {
     public function viewAny(User $user)
     {
