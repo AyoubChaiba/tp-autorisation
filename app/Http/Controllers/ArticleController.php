@@ -30,6 +30,15 @@ class ArticleController extends Controller
         echo 'create data';
     }
 
+    public function edit(Request $request, Article $article)
+    {
+        $this->authorize('update', $article);
+        if(Gate::allows('edit-article', $article)) {
+            abort(403);
+        }
+        echo"update data" ;
+    }
+
     public function update(Request $request, Article $article)
     {
         $this->authorize('update', $article);
