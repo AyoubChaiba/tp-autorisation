@@ -9,7 +9,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    @can('create','App\\Models\Post')
+                        <button type="button" class="p-6 text-white dark:bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300 ease-in-out shadow-md">
+                            Create new post
+                        </button>
+                    @endcan                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
@@ -44,11 +48,19 @@
                                         <td class="px-6 py-4">
                                             {{ $post->user_id }}
                                         </td>
-                                        @can('update',$post)
-                                            <td class="px-6 py-4">
+                                        <td class="px-6 py-4">
+                                            @can('view',$post)
+                                                <a href="{{ route('posts.show' , $post->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
+                                            @endcan
+                                            @can('update',$post)
+                                                |
                                                 <a href="{{ route('posts.edit' , $post->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            </td>
-                                        @endcan
+                                            @endcan
+                                            @can('delete',$post)
+                                                |
+                                                <a href="{{ route('posts.delete' , $post->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                            @endcan
+                                        </td>
                                     </tr>
                                 @endforeach
                         </tbody>
