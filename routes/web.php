@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,10 +21,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/articles', [PostsController::class, "index"])->name("articles.index");
-Route::get('/articles/create', [PostsController::class, "create"]);
-Route::post('/articles', [PostsController::class, "store"]);
-Route::get('/articles/{article}', [PostsController::class, "show"]);
-Route::get('/articles/{article}/edit', [PostsController::class, "edit"])->name('articles.edit');
-Route::patch('/articles/{article}', [PostsController::class, "update"]);
-Route::delete('/articles/{article}', [PostsController::class, "destroy"]);
+Route::get('/posts', [PostController::class, "index"])->name("posts.index");
+Route::get('/posts/create', [PostController::class, "create"]);
+Route::post('/posts', [PostController::class, "store"]);
+Route::get('/posts/{post}', [PostController::class, "show"]);
+Route::get('/posts/{post}/edit', [PostController::class, "edit"])->name('posts.edit');
+Route::patch('/posts/{post}', [PostController::class, "update"]);
+Route::delete('/posts/{post}', [PostController::class, "destroy"]);

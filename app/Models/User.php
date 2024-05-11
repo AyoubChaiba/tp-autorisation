@@ -46,13 +46,13 @@ class User extends Authenticatable
     }
 
 
-    public function getIsAdminAttribute()
-    {
-        return $this->is_admin;
-    }
+    // public function getIsAdminAttribute()
+    // {
+    //     return $this->is_admin;
+    // }
 
-    public function getIsEditorAttribute()
-    {
-        return $this->is_editor;
-    }
+    // public function getIsEditorAttribute()
+    // {
+    //     return $this->is_editor;
+    // }
 }

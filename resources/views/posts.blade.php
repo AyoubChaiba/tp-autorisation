@@ -30,23 +30,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                                @foreach ( $articles as $article )
+                                @foreach ( $posts as $post )
                                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $article->id }}
+                                            {{ $post->id }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ Str::limit($article->title , 50 , '...') }}
+                                            {{ Str::limit($post->title , 50 , '...') }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ Str::limit($article->content , 50 , '...') }}
+                                            {{ Str::limit($post->content , 50 , '...') }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $article->user_id }}
+                                            {{ $post->user_id }}
                                         </td>
-                                        @can('update',$article)
+                                        @can('update',$post)
                                             <td class="px-6 py-4">
-                                                <a href="{{ route('articles.edit' , $article->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                <a href="{{ route('posts.edit' , $post->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                             </td>
                                         @endcan
                                     </tr>

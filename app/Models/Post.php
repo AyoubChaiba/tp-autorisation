@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class posts extends Model
+class Post extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'title',
-        'content',
-        'user_id',
-    ];
+
+    protected $fillable = ['title', 'content', 'user_id']; // Les colonnes que vous pouvez remplir via mass assignment
 
     public function user()
     {
